@@ -48,7 +48,7 @@ def get_arg_parser():
 
 	resultsP = subP.add_parser("results", help="Browse retreived results")
 	resultsP.set_defaults(mode="results")
-	resultsP.add_argument("--query", default="SELECT name,status,houseNumber FROM CompanyInfoItem ORDER BY name")
+	resultsP.add_argument("--query", default="SELECT name,status,houseNumber FROM CompanyInfoItem ORDER BY name", required=False, help="Query to execute")
 
 	return parser
 
