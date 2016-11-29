@@ -29,6 +29,7 @@ def do_query(dbPath, query):
 
 		out.writerow(colNames)
 		for row in cur:
+			row = [el if isinstance(el, basestring) else str(el) for el in row]
 			out.writerow([el.encode("utf8") if el else "" for el in row])
 
 DB_PATH = os.path.join(
@@ -48,7 +49,7 @@ def get_arg_parser():
 
 	resultsP = subP.add_parser("results", help="Browse retreived results")
 	resultsP.set_defaults(mode="results")
-	resultsP.add_argument("--query", default="SELECT name,status,houseNumber FROM CompanyInfoItem ORDER BY name", required=False, help="Query to execute")
+	resultsP.add_argument("--query", default="SELECT name,status,houseNumber FROM CompanyInfoItem ORDER BY name", nargs='+', required=False, help="Query to execute")
 
 	return parser
 
@@ -57,4 +58,4 @@ if __name__ == "__main__":
 	if args.mode == "crawl":
 		do_crawl(args.db_path, args.query)
 	elif args.mode == "results":
-		do_query(args.db_path, args.query)
+		do_query(args.db_path, " ".join(args.query))
