@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__
+*.py[cod]
+*$py.class
+*.cache
+*.sublime-workspace
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# dotenv
+.env
+
+.DS_Store
+
+# virtualenv
+.venv/
+venv/
+ENV/
+
