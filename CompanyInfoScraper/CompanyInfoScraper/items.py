@@ -8,7 +8,16 @@
 import scrapy
 
 
-class CompanyinfoscraperItem(scrapy.Item):
+class CompanyInfoItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    
+    name = scrapy.Field()
+    address = scrapy.Field()
+    postcode = scrapy.Field()
+    phone = scrapy.Field()
+    email = scrapy.Field()
+    website = scrapy.Field()
+    houseNumber = scrapy.Field()
+    effectiveDate = scrapy.Field()
+    status = scrapy.Field()

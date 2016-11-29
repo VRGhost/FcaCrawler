@@ -1,1 +1,2 @@
 scrapy
+uk-postcode-utils
